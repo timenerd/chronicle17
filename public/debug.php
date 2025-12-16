@@ -93,7 +93,7 @@ use App\Services\Database;
         $dotenv->load();
         echo '<div class="success">✅ .env file loaded successfully from: ' . realpath(__DIR__ . '/../..') . '</div>';
         
-        $requiredVars = ['DB_HOST', 'DB_NAME', 'DB_USER', 'OPENAI_API_KEY', 'ANTHROPIC_API_KEY'];
+        $requiredVars = ['DB_HOST', 'DB_NAME', 'DB_USER', 'OPENAI_API_KEY', 'CLAUDE_API_KEY'];
         $missing = [];
         
         foreach ($requiredVars as $var) {
@@ -114,7 +114,7 @@ use App\Services\Database;
         echo 'DB_NAME: ' . ($_ENV['DB_NAME'] ?? 'not set') . '<br>';
         echo 'DB_USER: ' . ($_ENV['DB_USER'] ?? 'not set') . '<br>';
         echo 'OPENAI_API_KEY: ' . (empty($_ENV['OPENAI_API_KEY']) ? 'not set' : 'sk-....' . substr($_ENV['OPENAI_API_KEY'], -4)) . '<br>';
-        echo 'ANTHROPIC_API_KEY: ' . (empty($_ENV['ANTHROPIC_API_KEY']) ? 'not set' : 'sk-ant-....' . substr($_ENV['ANTHROPIC_API_KEY'], -4)) . '<br>';
+        echo 'CLAUDE_API_KEY: ' . (empty($_ENV['CLAUDE_API_KEY']) ? 'not set' : 'sk-ant-....' . substr($_ENV['CLAUDE_API_KEY'], -4)) . '<br>';
         echo '</div>';
         
     } catch (Exception $e) {
