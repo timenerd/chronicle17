@@ -109,7 +109,7 @@ async function createCampaign(e) {
     const formData = new FormData(e.target);
     
     try {
-        const response = await fetch('/campaigns', {
+        const response = await fetch(window.BASE_PATH + '/campaigns', {
             method: 'POST',
             body: formData
         });
@@ -117,7 +117,7 @@ async function createCampaign(e) {
         const data = await response.json();
         
         if (data.success) {
-            window.location.href = '/campaigns/' + data.campaign_id;
+            window.location.href = window.BASE_PATH + '/campaigns/' + data.campaign_id;
         } else {
             alert('Error: ' + data.error);
         }

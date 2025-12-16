@@ -190,7 +190,7 @@ ob_start();
             // Poll for status updates
             let pollInterval = setInterval(async () => {
                 try {
-                    const response = await fetch('/sessions/<?= $session['id'] ?>/status');
+                    const response = await fetch(window.BASE_PATH + '/sessions/<?= $session['id'] ?>/status');
                     const data = await response.json();
                     
                     if (data.status === 'complete' || data.status === 'failed') {

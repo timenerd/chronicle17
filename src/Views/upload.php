@@ -191,7 +191,7 @@ async function uploadSession(e) {
                     if (response.success) {
                         progressText.textContent = 'Upload complete! Redirecting...';
                         setTimeout(() => {
-                            window.location.href = '/campaigns/<?= $campaign['id'] ?>';
+                            window.location.href = window.BASE_PATH + '/campaigns/<?= $campaign['id'] ?>';
                         }, 1500);
                     } else {
                         alert('Error: ' + (response.error || 'Upload failed'));
@@ -232,7 +232,7 @@ async function uploadSession(e) {
             uploadProgress.style.display = 'none';
         });
         
-        xhr.open('POST', '/campaigns/<?= $campaign['id'] ?>/sessions');
+        xhr.open('POST', window.BASE_PATH + '/campaigns/<?= $campaign['id'] ?>/sessions');
         xhr.send(formData);
         
     } catch (error) {

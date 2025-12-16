@@ -6,6 +6,10 @@
     <title><?= $pageTitle ?? 'TTRPG Session Recap' ?></title>
     <meta name="description" content="AI-powered narrative recaps for your tabletop RPG sessions">
     <link rel="stylesheet" href="<?= asset('assets/css/style.css') ?>">
+    <script>
+        // Make BASE_PATH available to JavaScript
+        window.BASE_PATH = '<?= BASE_PATH ?>';
+    </script>
 </head>
 <body>
     <header>
