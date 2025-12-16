@@ -21,7 +21,7 @@ return [
             'whisper_model' => 'whisper-1',
         ],
         'anthropic' => [
-            'key' => $_ENV['ANTHROPIC_API_KEY'] ?? '',
+            'key' => $_ENV['CLAUDE_API_KEY'] ?? '',
             'model' => 'claude-sonnet-4-20250514',
         ],
         'elevenlabs' => [
