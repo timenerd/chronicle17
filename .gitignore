@@ -1,0 +1,38 @@
+# Dependencies
+/vendor/
+/node_modules/
+
+# Environment & Credentials
+/.env
+../.env
+
+# Storage & Uploads
+/storage/audio/*
+/storage/narrations/*
+/public/uploads/*
+!.gitkeep
+
+# Composer and Package Managers
+composer.lock
+package-lock.json
+
+# Logs
+*.log
+
+# IDE & Editor Files
+.vscode/
+.idea/
+*.sublime-*
+*.swp
+*.swo
+*~
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary Files
+*.tmp
+*.bak
+*.cache
