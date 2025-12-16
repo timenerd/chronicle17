@@ -322,6 +322,29 @@ cd /home/iamrlw/public_html/ttrpg-recap
 composer install --no-dev --optimize-autoloader
 ```
 
+### Error: "Class 'Dotenv\Repository\Adapter\ServerConstAdapter' not found"
+
+**Cause:** Corrupted or incomplete Composer dependencies
+
+**Fix:**
+```bash
+cd /home/iamrlw/public_html/ttrpg-recap
+
+# Remove corrupted vendor directory
+rm -rf vendor
+
+# Clear Composer cache
+composer clear-cache
+
+# Reinstall fresh
+composer install --no-dev --optimize-autoloader
+```
+
+**Alternative check:** Run the diagnostic script to identify the issue:
+```bash
+php diagnose.php
+```
+
 ### Error: "Could not find driver" (PDO MySQL)
 
 **Cause:** MySQL PDO extension not installed

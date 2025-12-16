@@ -216,17 +216,25 @@ APP_ENV=development
 
 ### Quick Diagnostic
 
+**For Local Development:**
 Visit the diagnostic page to check your setup:
 ```
 http://localhost/ttrpg-recap/debug.php
 ```
 
-This will verify:
+**For Production Servers:**
+Run the CLI diagnostic script:
+```bash
+php diagnose.php
+```
+
+These will verify:
 - ✅ .env file loading
 - ✅ Database connection  
 - ✅ Required tables exist
 - ✅ File permissions
 - ✅ PHP configuration
+- ✅ Composer dependencies
 
 ### Common Issues
 
