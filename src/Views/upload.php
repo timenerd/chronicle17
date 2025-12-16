@@ -5,7 +5,7 @@ ob_start();
 
 <div class="container" style="max-width: 800px;">
     <div class="mb-4">
-        <a href="/campaigns/<?= $campaign['id'] ?>" class="text-muted" style="text-decoration: none;">
+        <a href="<?= route('/campaigns/' . $campaign['id']) ?>" class="text-muted" style="text-decoration: none;">
             ← Back to <?= htmlspecialchars($campaign['name']) ?>
         </a>
     </div>
@@ -77,7 +77,7 @@ ob_start();
                 <button type="submit" id="submitBtn" class="btn btn-primary">
                     Upload & Start Processing
                 </button>
-                <a href="/campaigns/<?= $campaign['id'] ?>" class="btn btn-secondary">
+                <a href="<?= route('/campaigns/' . $campaign['id']) ?>" class="btn btn-secondary">
                     Cancel
                 </a>
             </div>

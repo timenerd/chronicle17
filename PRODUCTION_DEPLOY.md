@@ -75,8 +75,8 @@ DB_PASS=your-secure-password
 # Application Environment
 APP_ENV=production
 
-# Base URL (update with your actual domain)
-BASE_URL=https://yourdomain.com/ttrpg-recap
+# Base URL (production server)
+BASE_URL=https://iamrlw.com/ttrpg-recap
 ```
 
 **Security tip:** Make sure `.env` is NOT inside the `public_html` directory!
@@ -258,7 +258,7 @@ location /ttrpg-recap {
 
 Visit your diagnostic page:
 ```
-https://yourdomain.com/ttrpg-recap/debug.php
+https://iamrlw.com/ttrpg-recap/debug.php
 ```
 
 This will verify:
@@ -381,8 +381,8 @@ php diagnose.php
    # Application Environment
    APP_ENV=production
    
-   # Base URL (optional)
-   BASE_URL=https://yourdomain.com/ttrpg-recap
+   # Base URL (production server)
+   BASE_URL=https://iamrlw.com/ttrpg-recap
    ```
 
 3. **Common issues to avoid:**

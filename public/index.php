@@ -19,19 +19,38 @@ try {
     die('Error loading .env file: ' . $e->getMessage() . '<br>Make sure .env exists in: ' . realpath(__DIR__ . '/../..'));
 }
 
-// Get the request URI and clean it
+// Detect base path from REQUEST_URI
 $requestUri = $_SERVER['REQUEST_URI'];
+$scriptName = $_SERVER['SCRIPT_NAME'];
+$basePath = rtrim(dirname($scriptName), '/');
+
+// Define BASE_PATH constant for use in views
+define('BASE_PATH', $basePath);
+
+// Helper function for asset URLs
+function asset($path) {
+    return BASE_PATH . '/' . ltrim($path, '/');
+}
+
+// Helper function for route URLs
+function route($path) {
+    return BASE_PATH . '/' . ltrim($path, '/');
+}
+
+// Get the request URI and clean it
 $uri = parse_url($requestUri, PHP_URL_PATH);
 
-// Remove /ttrpg-recap prefix if present (for subdirectory installations)
-$uri = preg_replace('#^/ttrpg-recap#', '', $uri);
+// Remove base path prefix if present (for subdirectory installations)
+if ($basePath !== '') {
+    $uri = preg_replace('#^' . preg_quote($basePath, '#') . '#', '', $uri);
+}
 
 $method = $_SERVER['REQUEST_METHOD'];
 
 // Debug logging (comment out in production)
 $debug = ($_ENV['APP_ENV'] ?? 'production') === 'development';
 if ($debug) {
-    error_log("Request: $method $uri (Original: $requestUri)");
+    error_log("Request: $method $uri (Original: $requestUri, Base: $basePath)");
 }
 
 // Route handlers

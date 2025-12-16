@@ -5,7 +5,7 @@ ob_start();
 
 <div class="container">
     <div class="mb-4">
-        <a href="/campaigns/<?= $session['campaign_id'] ?>" class="text-muted" style="text-decoration: none;">
+        <a href="<?= route('/campaigns/' . $session['campaign_id']) ?>" class="text-muted" style="text-decoration: none;">
             ← Back to Campaign
         </a>
     </div>
@@ -45,7 +45,7 @@ ob_start();
                     <button onclick="copyToClipboard()" class="btn btn-secondary">
                         📋 Copy
                     </button>
-                    <a href="/sessions/<?= $session['id'] ?>/export" class="btn btn-secondary">
+                    <a href="<?= route('/sessions/' . $session['id'] . '/export') ?>" class="btn btn-secondary">
                         ⬇️ Export MD
                     </a>
                 </div>
@@ -161,7 +161,7 @@ ob_start();
             <p class="text-muted" style="margin-bottom: 2rem;">
                 <?= htmlspecialchars($session['error_message']) ?>
             </p>
-            <a href="/campaigns/<?= $session['campaign_id'] ?>/upload" class="btn btn-primary">
+            <a href="<?= route('/campaigns/' . $session['campaign_id'] . '/upload') ?>" class="btn btn-primary">
                 Upload Again
             </a>
         </div>

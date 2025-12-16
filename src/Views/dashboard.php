@@ -34,7 +34,7 @@ ob_start();
     </div>
 
     <div class="mt-4 text-center">
-        <a href="/campaigns" class="btn btn-primary" style="font-size: 1.25rem; padding: 1rem 2.5rem;">
+        <a href="<?= route('/campaigns') ?>" class="btn btn-primary" style="font-size: 1.25rem; padding: 1rem 2.5rem;">
             Get Started →
         </a>
     </div>

@@ -5,7 +5,7 @@ ob_start();
 
 <div class="container">
     <div class="mb-4">
-        <a href="/campaigns" class="text-muted" style="text-decoration: none;">← Back to Campaigns</a>
+        <a href="<?= route('/campaigns') ?>" class="text-muted" style="text-decoration: none;">← Back to Campaigns</a>
     </div>
 
     <div class="flex items-center justify-between mb-4">
@@ -17,7 +17,7 @@ ob_start();
                 <p class="text-muted"><?= htmlspecialchars($campaign['game_system']) ?></p>
             <?php endif; ?>
         </div>
-        <a href="/campaigns/<?= $campaign['id'] ?>/upload" class="btn btn-primary">
+        <a href="<?= route('/campaigns/' . $campaign['id'] . '/upload') ?>" class="btn btn-primary">
             + Upload Session
         </a>
     </div>
@@ -145,7 +145,7 @@ ob_start();
                                     </td>
                                     <td style="padding: 0.75rem;">
                                         <?php if ($job['session_title']): ?>
-                                            <a href="/sessions/<?= $job['session_id'] ?>" style="color: var(--primary);">
+                                            <a href="<?= route('/sessions/' . $job['session_id']) ?>" style="color: var(--primary);">
                                                 <?= htmlspecialchars(substr($job['session_title'], 0, 30)) ?>
                                             </a>
                                         <?php else: ?>
@@ -215,7 +215,7 @@ ob_start();
                 <div style="font-size: 3rem; margin-bottom: 1rem;">🎙️</div>
                 <h3 style="margin-bottom: 0.5rem;">No Sessions Yet</h3>
                 <p class="text-muted mb-4">Upload your first session recording to get started!</p>
-                <a href="/campaigns/<?= $campaign['id'] ?>/upload" class="btn btn-primary">
+                <a href="<?= route('/campaigns/' . $campaign['id'] . '/upload') ?>" class="btn btn-primary">
                     Upload Session
                 </a>
             </div>
@@ -238,7 +238,7 @@ ob_start();
                         </div>
                         
                         <?php if ($session['status'] === 'complete'): ?>
-                            <a href="/sessions/<?= $session['id'] ?>" class="btn btn-primary mt-2">
+                            <a href="<?= route('/sessions/' . $session['id']) ?>" class="btn btn-primary mt-2">
                                 View Recap
                             </a>
                         <?php elseif ($session['status'] === 'failed'): ?>

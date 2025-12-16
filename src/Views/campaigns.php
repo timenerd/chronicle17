@@ -47,10 +47,10 @@ ob_start();
                     </div>
                     
                     <div class="flex gap-2 mt-4">
-                        <a href="/campaigns/<?= $campaign['id'] ?>" class="btn btn-primary">
+                        <a href="<?= route('/campaigns/' . $campaign['id']) ?>" class="btn btn-primary">
                             View Campaign
                         </a>
-                        <a href="/campaigns/<?= $campaign['id'] ?>/upload" class="btn btn-secondary">
+                        <a href="<?= route('/campaigns/' . $campaign['id'] . '/upload') ?>" class="btn btn-secondary">
                             Upload Session
                         </a>
                     </div>
