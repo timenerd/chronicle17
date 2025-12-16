@@ -22,7 +22,14 @@ try {
 // Detect base path from REQUEST_URI
 $requestUri = $_SERVER['REQUEST_URI'];
 $scriptName = $_SERVER['SCRIPT_NAME'];
-$basePath = rtrim(dirname($scriptName), '/');
+
+// Get directory of script, removing '/public' if present
+// Example: /ttrpg-recap/public/index.php -> /ttrpg-recap/public -> /ttrpg-recap
+$basePath = dirname($scriptName);
+if (basename($basePath) === 'public') {
+    $basePath = dirname($basePath);
+}
+$basePath = rtrim($basePath, '/');
 
 // Define BASE_PATH constant for use in views
 define('BASE_PATH', $basePath);
