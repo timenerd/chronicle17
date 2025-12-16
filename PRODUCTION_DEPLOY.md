@@ -345,6 +345,53 @@ composer install --no-dev --optimize-autoloader
 php diagnose.php
 ```
 
+### Error: "Failed to parse dotenv file" or "Encountered an invalid name at [SMTP_HOST, ...]"
+
+**Cause:** .env file has formatting errors or contains variables from another application (like SMTP settings)
+
+**Fix:**
+
+1. **Validate your .env file:**
+   ```bash
+   php validate-env.php
+   ```
+   
+   This will show you exactly which lines have issues.
+
+2. **Recreate .env file from scratch:**
+   ```bash
+   cd /home/iamrlw/public_html
+   nano .env
+   ```
+   
+   Use ONLY these variables (no SMTP, no EMAIL, no MAIL variables):
+   ```env
+   # OpenAI API Key (for Whisper transcription)
+   OPENAI_API_KEY=sk-proj-your-actual-key-here
+   
+   # Anthropic API Key (for Claude AI recap generation)
+   ANTHROPIC_API_KEY=sk-ant-your-actual-key-here
+   
+   # Database Configuration
+   DB_HOST=localhost
+   DB_NAME=iamrlw_ttrpg_recap
+   DB_USER=iamrlw_dbuser
+   DB_PASS=your-actual-password
+   
+   # Application Environment
+   APP_ENV=production
+   
+   # Base URL (optional)
+   BASE_URL=https://yourdomain.com/ttrpg-recap
+   ```
+
+3. **Common issues to avoid:**
+   - No spaces around the `=` sign
+   - No quotes around values (unless value contains spaces)
+   - Comments must start with `#`
+   - Only use A-Z, 0-9, and underscore in variable names
+   - Don't mix this .env with other applications
+
 ### Error: "Could not find driver" (PDO MySQL)
 
 **Cause:** MySQL PDO extension not installed
